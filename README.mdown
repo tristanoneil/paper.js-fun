@@ -1,0 +1,3 @@
+# About
+
+Just for messing around with [paper.js](http://paperjs.org/), because it's awesome.
