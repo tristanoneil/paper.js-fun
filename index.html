@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Paper</title>
+  <script src="paper.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/paperscript" canvas="canvas-1">
+    var topLeft = new Point(75, 50);
+
+    var size = new Size(200, 200);
+    var path = new Path.Rectangle(topLeft, size);
+    path.strokeColor = 'black';
+    path.strokeWidth = '5'
+    path.fillColor = '#3b5998';
+
+    var direction = 10;
+
+    function onFrame(event) {
+      if(path.position.x >= (view.bounds.width - 100)) {
+        direction = -10;
+      }
+      else if(path.position.x <= (view.bounds.x + 100)) {
+        console.log(path.position.x);
+        direction = 10;
+      }
+      path.position.x += direction;
+    }
+  </script>
+  <style type="text/css">
+    body {
+      margin: 30px 0;
+      background: #f2f2f2;
+    }
+
+    .canvas {
+      border-top: solid 2px #333;
+      border-bottom: solid 2px #333;
+      background: #fff;
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="canvas"><canvas resize="true" id="canvas-1"></canvas></div>
+</body>
+</html>
